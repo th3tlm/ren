@@ -1,0 +1,542 @@
+:root {
+        --bg: #051926;
+        --accent: #ffffff;
+        --cream: #f5e6c8;
+        --glass: rgba(255, 255, 255, 0.05);
+        --font-title: 'Cinzel', serif;
+        --font-body: 'Montserrat', sans-serif;
+        --transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1), padding 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    /* CURSEUR */
+    #cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background: var(--cream);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        opacity: 0;
+        transition: opacity 0.3s;
+        will-change: transform, opacity;
+    }
+
+    #cursor-blur {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 35px;
+        height: 35px;
+        border: 1px solid rgba(245, 230, 200, 0.4);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s, border-color 0.15s ease-out;
+        will-change: transform, opacity, border-color;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body.custom-cursor,
+    /* removed wildcard rule */ .unused-rule {
+        cursor: none !important;
+    }
+
+    html {
+        /* removed scroll-behavior: smooth */
+    }
+
+    body {
+        background: var(--bg);
+        color: var(--accent);
+        font-family: var(--font-body);
+        overflow-x: hidden;
+        line-height: 1.7;
+    }
+
+    /* NAV */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 60px;
+        z-index: 1000;
+        transition: var(--transition);
+    }
+
+    header.scrolled {
+        padding: 15px 60px;
+        background: rgba(5, 25, 38, 0.9);
+        /* removed backdrop-filter for performance */
+    }
+
+    .logo img {
+        height: 100px;
+        transition: var(--transition);
+        filter: brightness(100);
+    }
+
+    header.scrolled .logo img {
+        height: 70px;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: var(--accent);
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.6;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        opacity: 1;
+        color: var(--cream);
+    }
+
+    /* HERO */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(5, 25, 38, 0.3), var(--bg)), url('/images/Details_Exterior_Sunset_9649.webp') center/cover;
+        transform: scale(1.1);
+        z-index: -1;
+    }
+
+    .hero h1 {
+        font-family: var(--font-title);
+        font-size: clamp(40px, 8vw, 90px);
+        letter-spacing: 15px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    section {
+        padding: 100px 10%;
+    }
+
+    .section-title {
+        font-family: var(--font-title);
+        font-size: clamp(30px, 4vw, 45px);
+        text-align: center;
+        margin-bottom: 60px;
+        letter-spacing: 4px;
+        color: var(--cream);
+    }
+
+    /* HISTOIRE */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .about-text p {
+        font-size: 18px;
+        font-weight: 200;
+        text-align: justify;
+        margin-bottom: 25px;
+    }
+
+    .about-gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .about-gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 2px;
+        filter: grayscale(0.3);
+        transition: 0.5s;
+    }
+
+    .about-gallery img:hover {
+        filter: grayscale(0);
+        transform: scale(1.02);
+    }
+
+    /* SERVICES */
+    .services-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    .services-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 40px;
+        padding: 20px 50px 60px 50px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+    }
+
+    .services-scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scroll-indicator {
+        text-align: center;
+        color: var(--cream);
+        font-size: 12px;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+        opacity: 0.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .service-card-wide {
+        min-width: 450px;
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: var(--transition);
+        position: relative;
+    }
+
+    .service-card-wide:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .service-card-wide img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: 0.5s;
+    }
+
+    .service-card-wide:hover img {
+        opacity: 1;
+    }
+
+    .service-card-content {
+        padding: 30px;
+    }
+
+    .service-card-content h3 {
+        font-family: var(--font-title);
+        color: var(--cream);
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+
+    /* OFFRES */
+    .offers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .offer-card {
+        background: var(--glass);
+        padding: 30px;
+        border-radius: 2px;
+        transition: var(--transition);
+        border-top: 2px solid transparent;
+        cursor: pointer !important;
+    }
+
+    .offer-card:hover {
+        border-top-color: var(--cream);
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .offer-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .offer-details {
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.5s ease;
+        opacity: 0;
+    }
+
+    .offer-card.active .offer-details {
+        max-height: 500px;
+        opacity: 1;
+        padding-top: 20px;
+    }
+
+    .btn-offer {
+        margin-top: 15px;
+        background: none;
+        border: 1px solid var(--cream);
+        color: var(--cream);
+        padding: 10px 20px;
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
+
+    .btn-offer:hover {
+        background: var(--cream);
+        color: var(--bg);
+    }
+
+    /* CHAMBRES */
+    .rooms-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .room-card {
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .room-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 1.5s;
+        filter: brightness(0.7);
+    }
+
+    .room-card:hover img {
+        transform: scale(1.1);
+        filter: brightness(1);
+    }
+
+    .room-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 40px;
+        background: linear-gradient(transparent, rgba(5, 25, 38, 0.9));
+    }
+
+    .room-info h3 {
+        font-family: var(--font-title);
+        font-size: 22px;
+    }
+
+    .room-info .price {
+        color: var(--cream);
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    /* EXPLORE */
+    .explore-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .explore-item {
+        position: relative;
+        height: 450px;
+        overflow: hidden;
+    }
+
+    .explore-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.8s;
+    }
+
+    .explore-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .explore-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(5, 25, 38, 0.3);
+        transition: 0.5s;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .explore-overlay h3 {
+        font-family: var(--font-title);
+        font-size: 24px;
+        letter-spacing: 3px;
+        width: 100%;
+    }
+
+    /* CONTACT & SOCIAL */
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        background: var(--cream);
+        color: var(--bg);
+        overflow: hidden;
+    }
+
+    .contact-info {
+        padding: 60px;
+    }
+
+    .contact-info p {
+        margin-bottom: 15px;
+        word-wrap: break-word;
+        /* Force le retour à la ligne pour l'email sur mobile */
+        overflow-wrap: break-word;
+    }
+
+    .social-links {
+        margin-top: 40px;
+        display: flex;
+        gap: 25px;
+    }
+
+    .social-links a {
+        color: var(--bg);
+        font-size: 20px;
+        transition: 0.3s;
+        opacity: 0.7;
+    }
+
+    .social-links a:hover {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+
+    .map-wrap {
+        height: 450px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        filter: grayscale(1);
+    }
+
+    footer {
+        text-align: center;
+        padding: 50px;
+        font-size: 11px;
+        letter-spacing: 3px;
+        opacity: 0.5;
+    }
+
+    /* RESPONSIVE DESIGN (ADAPTABILITÉ) */
+    @media (max-width: 1024px) {
+        header {
+            padding: 20px 30px;
+        }
+
+        nav {
+            display: none;
+        }
+
+        section {
+            padding: 60px 5%;
+        }
+
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .rooms-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .explore-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .service-card-wide {
+            min-width: 85vw;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .rooms-grid,
+        .explore-grid,
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            letter-spacing: 5px;
+        }
+
+        .map-wrap {
+            height: 300px;
+        }
+
+        /* Ajustements spécifiques CONTACT pour mobile */
+        .contact-info {
+            padding: 40px 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px !important;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Désactiver le curseur sur mobile pour éviter les bugs visuels */
+        #cursor,
+        #cursor-blur {
+            display: none !important;
+        }
+
+        body.custom-cursor,
+        body.custom-cursor * {
+            cursor: auto !important;
+        }
+    }
