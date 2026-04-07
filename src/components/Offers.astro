@@ -1,0 +1,59 @@
+---
+---
+<section id="offers">
+    <h2 class="section-title animate-on-scroll">Offres SIAHA 2026</h2>
+    <div class="offers-grid">
+        <div class="offer-card animate-on-scroll zoom-in">
+            <div style="position: relative;">
+                <img src="/images/Guestroom_Standard_King_9811.webp" alt="Offre SIGNATURE" loading="lazy">
+                <span style="position: absolute; top: 10px; right: 10px; background: var(--cream); color: var(--bg); padding: 5px 12px; font-size: 9px; font-weight: bold;">SIGNATURE</span>
+            </div>
+            <h3>Réservez 3 nuitées, la 4ᵉ offerte</h3>
+            <div class="offer-details">
+                <p style="font-style: italic;">"Un séjour d’exception, entre relaxation absolue et découvertes locales raffinées."</p>
+                <ul style="list-style:none; margin: 15px 0;">
+                    <li>• 4ème nuit offerte</li>
+                    <li>• Une balade touristique ou une visite guidée à Tlemcen.</li>
+                    <li>• Accès Spa , Hemmem , Sauna et GYM offert</li>
+                    <li>• Accès au parc d’attractions offert</li>
+                </ul>
+                <button class="btn-offer">Réserver</button>
+            </div>
+        </div>
+
+        <div class="offer-card animate-on-scroll zoom-in" style="transition-delay: 0.2s">
+            <img src="/images/436414.webp" alt="Famille" loading="lazy">
+            <h3>Family Offer</h3>
+            <div class="offer-details">
+                <p style="font-style: italic;">"Des moments précieux à partager en famille."</p>
+                <ul style="list-style:none; margin: 15px 0;">
+                    <li>• Kids Eat for Free</li>
+                    <li>• -50% sur la 2ème chambre</li>
+                    <li>• Accès au Spa et salle de sport</li>
+                    <li>• Late check-out jusqu’à 14h</li>
+                </ul>
+                <button class="btn-offer">Découvrir</button>
+            </div>
+        </div>
+        <div class="offer-card animate-on-scroll zoom-in" style="transition-delay: 0.4s">
+            <img src="/images/Patio_Lounge_Exterior_Lifestyle_7904.webp" alt="Escale" loading="lazy">
+            <h3>Early Bird</h3>
+            <div class="offer-details">
+                <p style="font-style: italic;">Réservez tôt, Economisez plus.</p>
+                <ul style="list-style:none; margin: 15px 0;">
+                    <li>• – 25 % du 21 au 30 avril</li>
+                    <li>• – 20 % du 1er au 14 mai</li>
+                    <li>• – 10 % du 15 au 31 mai</li>
+                </ul>
+                <button class="btn-offer">S'évader</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.querySelectorAll('.offer-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('active');
+        });
+    });
+</script>
